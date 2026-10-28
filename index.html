@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Sayaji Hotel Indore | Guest Portal & 5-Star Reviews</title>
+  <title>Sayaji Hotel Indore | 5-Star Reviews</title>
   <style>
     :root {
       --bg: #090a0c;
@@ -95,30 +95,6 @@
       letter-spacing: 2px;
     }
 
-    .section-title {
-      font-size: 11.5px;
-      font-weight: 800;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 2px;
-    }
-
-    /* Review Card Module */
-    .review-module {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-
     .steps {
       display: flex;
       justify-content: space-between;
@@ -175,6 +151,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 4px;
     }
 
     .live-status {
@@ -218,13 +195,14 @@
     }
 
     .review-box {
-      background: #0c0f13;
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 14px;
-      min-height: 85px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 95px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .review-content {
@@ -265,10 +243,6 @@
       font-weight: 900;
       letter-spacing: 0.6px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
       box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
     }
 
@@ -277,111 +251,35 @@
       color: #fff !important;
     }
 
-    /* Wi-Fi Card */
-    .wifi-card {
+    /* Simple Wi-Fi Display */
+    .wifi-box {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .wifi-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .btn-wifi-copy {
-      background: #1c242d;
+    .btn-wifi {
+      background: #1b2129;
       border: 1px solid var(--border);
       color: var(--gold-light);
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
       font-weight: bold;
       cursor: pointer;
-      text-align: center;
     }
 
-    .btn-wifi-copy.copied {
-      background: var(--green) !important;
-      color: #fff !important;
-      border-color: var(--green) !important;
-    }
-
-    /* Room Service 1-Tap Grid */
-    .service-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .service-card {
-      background: var(--card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px 10px;
-      text-align: center;
+    .btn-wifi.copied {
+      background: var(--green);
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      text-decoration: none;
     }
 
-    .service-card:active {
-      border-color: var(--gold);
-      background: #1a2129;
-    }
-
-    .service-icon {
-      font-size: 22px;
-    }
-
-    .service-name {
-      font-size: 12px;
-      font-weight: 700;
-      color: #f3f4f6;
-    }
-
-    .service-desc {
-      font-size: 10px;
-      color: var(--text-sub);
-    }
-
-    /* Direct Stay Card */
-    .action-card {
-      background: linear-gradient(145deg, #161e27 0%, #0e1216 100%);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .btn-action-green {
-      background: #25D366;
-      color: #07220e;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 900;
-      text-align: center;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* Footer */
     .footer {
-      margin-top: 2px;
+      margin-top: 4px;
       background: #101418;
       border-radius: 14px;
       padding: 10px;
@@ -418,7 +316,6 @@
 
   <div class="container">
     
-    <!-- Grand Header -->
     <header class="header">
       <div class="since">5-STAR LUXURY HOSPITALITY</div>
       <h1 class="brand">SAYAJI</h1>
@@ -430,105 +327,54 @@
       </div>
     </header>
 
-    <!-- SECTION 1: 5-STAR REVIEW ENGINE -->
-    <div class="review-module">
-      <div class="section-title">⭐ Tap & Post 5-Star Review</div>
-
-      <div class="steps">
-        <div><span class="step-num">1</span> Pick Experience</div>
-        <div><span class="step-num">2</span> Tap Button</div>
-        <div><span class="step-num">3</span> Paste & Post</div>
-      </div>
-
-      <div class="pills">
-        <button class="pill-btn active" id="pill-all" onclick="setCategory('all')">✨ ALL EXPERIENCE</button>
-        <button class="pill-btn" id="pill-stay" onclick="setCategory('stay')">🛏️ LUXURY STAY</button>
-        <button class="pill-btn" id="pill-dining" onclick="setCategory('dining')">🍢 KEBABSVILLE</button>
-        <button class="pill-btn" id="pill-events" onclick="setCategory('events')">🎉 BANQUETS</button>
-        <button class="pill-btn" id="pill-hospitality" onclick="setCategory('hospitality')">🛎️ FRONT DESK</button>
-      </div>
-
-      <div class="toolbar">
-        <div class="live-status"><span class="dot"></span> 100% Unique Review</div>
-        <div class="lang-box">
-          <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
-        </div>
-      </div>
-
-      <div class="review-box">
-        <div class="review-content" id="review-target">Unmatched luxury hospitality at Sayaji Hotel Indore! The rooms are exceptionally clean, spacious, and comfortable. Breakfast spread was royal and front desk team was extremely courteous. 10/10 recommended in Indore!</div>
-      </div>
-
-      <button class="btn-shuffle" onclick="nextReview()">
-        <span>🎲</span> NEXT REVIEW (DUSRA REVIEW)
-      </button>
-
-      <button class="btn-cta" id="cta-btn" onclick="copyAndRedirect()">
-        📋 COPY & RATE 5-STAR
-      </button>
+    <div class="steps">
+      <div><span class="step-num">1</span> Pick Topic</div>
+      <div><span class="step-num">2</span> Tap Button</div>
+      <div><span class="step-num">3</span> Paste & Post</div>
     </div>
 
-    <!-- SECTION 2: HIGH SPEED HOTEL WI-FI -->
-    <div class="wifi-card">
-      <div class="section-title">📶 Complimentary Guest Wi-Fi</div>
-      <div class="wifi-row">
-        <div>
-          <div style="font-size: 13px; font-weight: 700; color: #fff;">SSID: Sayaji_Guest_5G</div>
-          <div style="font-size: 11px; color: var(--text-sub);">Password: <strong style="color:var(--gold-light);">Sayaji@2026</strong></div>
-        </div>
-        <span style="background:#064e3b; color:#6ee7b7; font-size:10px; font-weight:bold; padding:2px 8px; border-radius:10px;">100 MBPS</span>
-      </div>
-      <button class="btn-wifi-copy" id="btn-wifi" onclick="copyWifi()">
-        📋 TAP TO COPY WI-FI PASSWORD
-      </button>
+    <!-- Category Pills -->
+    <div class="pills">
+      <button class="pill-btn active" id="pill-all" onclick="setCategory('all')">✨ ALL REVIEWS</button>
+      <button class="pill-btn" id="pill-stay" onclick="setCategory('stay')">🛏️ LUXURY STAY</button>
+      <button class="pill-btn" id="pill-dining" onclick="setCategory('dining')">🍢 KEBABSVILLE</button>
+      <button class="pill-btn" id="pill-events" onclick="setCategory('events')">🎉 BANQUETS</button>
+      <button class="pill-btn" id="pill-service" onclick="setCategory('service')">🛎️ FRONT DESK</button>
     </div>
 
-    <!-- SECTION 3: 1-TAP WHATSAPP ROOM SERVICE -->
-    <div style="display:flex; flex-direction:column; gap:8px;">
-      <div class="section-title">🛎️ 1-Tap WhatsApp Room Service</div>
-      <div class="service-grid">
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk%20(Sayaji%20Hotel),%20Please%20send%20Extra%20Mineral%20Water%20Bottles%20to%20my%20room." class="service-card" target="_blank">
-          <span class="service-icon">💧</span>
-          <span class="service-name">Mineral Water</span>
-          <span class="service-desc">Send to Room</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk%20(Sayaji%20Hotel),%20Requesting%20Fresh%20Bath%20Towels%20and%20Toiletries." class="service-card" target="_blank">
-          <span class="service-icon">🧺</span>
-          <span class="service-name">Fresh Towels</span>
-          <span class="service-desc">Bathroom Kit</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Housekeeping%20(Sayaji%20Hotel),%20Please%20schedule%20cleaning%20for%20my%20room." class="service-card" target="_blank">
-          <span class="service-icon">🧹</span>
-          <span class="service-name">Housekeeping</span>
-          <span class="service-desc">Room Cleaning</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk%20(Sayaji%20Hotel),%20Need%20Bellboy%20Luggage%20Assistance%20for%20Checkout." class="service-card" target="_blank">
-          <span class="service-icon">🧳</span>
-          <span class="service-name">Bellboy Help</span>
-          <span class="service-desc">Checkout Luggage</span>
-        </a>
+    <div class="toolbar">
+      <div class="live-status"><span class="dot"></span> 100% Unique Review</div>
+      <div class="lang-box">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
       </div>
     </div>
 
-    <!-- SECTION 4: DIRECT STAY DISCOUNT -->
-    <div class="action-card">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:13px; font-weight:800; color:#fff;">🏨 Book Direct on Next Visit</span>
-        <span style="background:#064e3b; color:#6ee7b7; font-size:10px; font-weight:800; padding:2px 8px; border-radius:10px;">FLAT 15% OFF</span>
-      </div>
-      <p style="font-size:11.5px; color:var(--text-sub); line-height:1.4;">
-        Save OTA commissions. Book directly with our reservations team and get lowest rate guarantee + free buffet breakfast.
-      </p>
-      <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20Reservations,%20I%20want%20to%20book%20a%20room%20directly%20with%20the%2015%25%20Guest%20Offer." class="btn-action-green" target="_blank">
-        <span>💬</span> WHATSAPP DIRECT BOOKING
-      </a>
+    <!-- Review Text Box -->
+    <div class="review-box">
+      <div class="review-content" id="review-target">Unmatched luxury hospitality at Sayaji Hotel Indore! The rooms are exceptionally clean, spacious, and comfortable. Breakfast spread was royal and front desk team was extremely courteous. 10/10 recommended in Indore!</div>
     </div>
 
-    <!-- Footer -->
+    <!-- Shuffle Button -->
+    <button class="btn-shuffle" onclick="nextReview()">
+      <span>🎲</span> NEXT REVIEW (DUSRA REVIEW)
+    </button>
+
+    <!-- Main Copy CTA -->
+    <button class="btn-cta" id="cta-btn" onclick="copyAndRedirect()">
+      📋 COPY & RATE 5-STAR
+    </button>
+
+    <!-- Wi-Fi Card -->
+    <div class="wifi-box">
+      <div>
+        <div style="font-size:12px; font-weight:bold; color:#fff;">📶 Guest Wi-Fi: Sayaji_Guest_5G</div>
+        <div style="font-size:11px; color:var(--gold-light);">Password: <strong>Sayaji@2026</strong></div>
+      </div>
+      <button class="btn-wifi" id="btn-wifi" onclick="copyWifi()">Copy Pass</button>
+    </div>
+
+    <!-- Footer Links -->
     <footer class="footer">
       <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">
         <div class="f-icon">📍</div>
@@ -540,7 +386,7 @@
       </a>
       <a href="https://sayajihotels.com" class="f-link" target="_blank">
         <div class="f-icon">🌐</div>
-        Official Web
+        Website
       </a>
     </footer>
 
@@ -570,7 +416,7 @@
           "Attended a grand wedding at Sayaji Banquets. Outstanding event management, spacious air-conditioned halls, and exquisite catering.",
           "Best banquet venue in Indore for corporate conferences and luxury weddings. The lighting, sound, and catering staff were world class."
         ],
-        hospitality: [
+        service: [
           "Front desk hospitality deserves more than 5 stars! Smooth check-in, polite bellboys, and genuine warmth across the entire team.",
           "The staff at Sayaji goes out of the way to ensure guest comfort. Prompt response on every service call with a humble smile."
         ]
@@ -594,7 +440,7 @@
           "Sayaji ka banquet hall aur wedding management Indore me number one hai. Grand decoration, shandar food aur attentive staff mila.",
           "Corporate event attend kiya yahan. Hall ka sound, AC aur food arrangements bilkul flawless the. Best event venue!"
         ],
-        hospitality: [
+        service: [
           "Front desk aur housekeeping staff ka behaviour bohot respectful aur helpful raha. Har request 5 minute me complete hui. Shandar service!",
           "Warm hospitality aur humble staff! Guest ki har choti zaroorat ka dhyan rakhte hain. Full 5-star hospitality banti hai."
         ]
@@ -605,5 +451,87 @@
     var currentLang = 'en';
     var lastIndex = 0;
     
-    // Direct Official Google Review Writing URL with Retrieved Place ID
-    var redirectUrl = "https://search.google.com/local/writereview?placeid=ChIJ3VHKFKgCYzkR61I0bzuwhPY
+    // Direct Official Google Review Writing URL (from your Place ID screenshot)
+    var redirectUrl = "https://search.google.com/local/writereview?placeid=ChIJ3VHKFKgCYzkR61I0bzuwhPY";
+
+    window.nextReview = function() {
+      var list = reviews[currentLang][currentCat];
+      if (!list || list.length === 0) list = reviews['en']['all'];
+
+      var nextIdx = Math.floor(Math.random() * list.length);
+      if (nextIdx === lastIndex && list.length > 1) {
+        nextIdx = (nextIdx + 1) % list.length;
+      }
+      lastIndex = nextIdx;
+
+      document.getElementById('review-target').innerText = list[nextIdx];
+    };
+
+    window.setCategory = function(cat) {
+      currentCat = cat;
+      var pills = document.querySelectorAll('.pill-btn');
+      for (var i = 0; i < pills.length; i++) {
+        pills[i].classList.remove('active');
+      }
+      var target = document.getElementById('pill-' + cat);
+      if (target) target.classList.add('active');
+      window.nextReview();
+    };
+
+    window.setLang = function(lang) {
+      currentLang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
+      window.nextReview();
+    };
+
+    window.copyAndRedirect = function() {
+      var text = document.getElementById('review-target').innerText.trim();
+      var btn = document.getElementById('cta-btn');
+      btn.classList.add('copied');
+      btn.innerText = "✓ COPIED! OPENING GOOGLE...";
+
+      var doNav = function() {
+        window.location.href = redirectUrl;
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          setTimeout(doNav, 250);
+        }).catch(doNav);
+      } else {
+        var temp = document.createElement("textarea");
+        document.body.appendChild(temp);
+        temp.value = text;
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        setTimeout(doNav, 250);
+      }
+    };
+
+    window.copyWifi = function() {
+      var pwd = "Sayaji@2026";
+      var btn = document.getElementById('btn-wifi');
+      btn.classList.add('copied');
+      btn.innerText = "✓ Copied";
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pwd);
+      } else {
+        var temp = document.createElement("textarea");
+        document.body.appendChild(temp);
+        temp.value = pwd;
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+
+      setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.innerText = "Copy Pass";
+      }, 3000);
+    };
+  </script>
+</body>
+</html>
