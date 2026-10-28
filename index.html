@@ -94,7 +94,6 @@
       letter-spacing: 2px;
     }
 
-    /* Section Headings */
     .section-title {
       font-size: 12px;
       font-weight: 800;
@@ -299,18 +298,19 @@
       background: #1c242d;
       border: 1px solid var(--border);
       color: var(--gold-light);
-      padding: 10px;
+      padding: 12px;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: bold;
       cursor: pointer;
       text-align: center;
+      transition: background 0.2s;
     }
 
     .btn-wifi-copy.copied {
-      background: var(--green);
-      color: #fff;
-      border-color: var(--green);
+      background: var(--green) !important;
+      color: #fff !important;
+      border-color: var(--green) !important;
     }
 
     /* Room Service 1-Tap Grid */
@@ -354,7 +354,7 @@
       color: var(--text-sub);
     }
 
-    /* Dining & Stay Direct */
+    /* Direct Stay Card */
     .action-card {
       background: linear-gradient(145deg, #161e27 0%, #0e1216 100%);
       border: 1px solid var(--border);
@@ -378,6 +378,27 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
+    }
+
+    /* Toast Notification */
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10b981;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+      transition: transform 0.25s ease-out;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    #copy-toast.show {
+      transform: translateX(-50%) translateY(0);
     }
 
     /* Footer */
@@ -529,6 +550,9 @@
       </a>
     </div>
 
+    <!-- Toast Notification -->
+    <div id="copy-toast">✓ COPIED TO CLIPBOARD!</div>
+
     <!-- Footer Quick Actions -->
     <footer class="footer">
       <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">
@@ -596,19 +620,4 @@
           "Corporate event attend kiya yahan. Hall ka sound, AC aur food arrangements bilkul flawless the. Best event venue!"
         ],
         hospitality: [
-          "Front desk aur housekeeping staff ka behaviour bohot respectful aur helpful raha. Har request 5 minute me complete hui. Shandar service!",
-          "Warm hospitality aur humble staff! Guest ki har choti zaroorat ka dhyan rakhte hain. Full 5-star hospitality banti hai."
-        ]
-      }
-    };
-
-    var currentCat = 'all';
-    var currentLang = 'en';
-    var lastIndex = 0;
-    var redirectUrl = "https://search.google.com/local/writereview?placeid=ChIJ054-0l_9YjkRCzKovp53_Zg";
-
-    function nextReview() {
-      var list = reviews[currentLang][currentCat];
-      if (!list || list.length === 0) list = reviews['en']['all'];
-
-      var nextIdx = Math.floor(Math.random() * list.l
+          "Front desk aur housekeepin
