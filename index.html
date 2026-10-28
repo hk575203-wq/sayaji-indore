@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Sayaji Hotel Indore | Guest Experience & Reviews</title>
+  <title>Sayaji Hotel Indore | Guest Portal & 5-Star Reviews</title>
   <style>
     :root {
       --bg: #08090a;
-      --card: #121518;
-      --card-inner: #1a1e23;
+      --card: #13171b;
+      --card-inner: #1a2026;
       --gold: #d4af37;
       --gold-light: #fef08a;
       --gold-grad: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #996515 100%);
-      --emerald: #059669;
+      --emerald: #10b981;
       --text: #ffffff;
       --text-sub: #9ca3af;
       --border: rgba(212, 175, 55, 0.28);
@@ -37,8 +37,8 @@
       justify-content: center;
       padding: 12px;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.18) 0%, transparent 65%),
-        radial-gradient(circle at 50% 100%, rgba(5, 150, 105, 0.12) 0%, transparent 60%);
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
+        radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
     }
 
     .container {
@@ -49,10 +49,10 @@
       gap: 12px;
     }
 
-    /* Hotel Grand Header */
+    /* हेडर */
     .header {
       text-align: center;
-      padding: 16px 8px 6px;
+      padding: 14px 8px 4px;
     }
 
     .hotel-badge {
@@ -87,12 +87,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #171c21;
+      background: #171d24;
       border: 1px solid var(--border);
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 20px;
       font-size: 11.5px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .stars {
@@ -100,7 +100,7 @@
       letter-spacing: 2px;
     }
 
-    /* Main Navigation Switcher (Tabs) */
+    /* मुख्य नेविगेशन टैब्स */
     .nav-tabs {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -113,9 +113,9 @@
 
     .tab-btn {
       background: transparent;
-      border: none;
+      border: 1px solid transparent;
       color: var(--text-sub);
-      padding: 9px 2px;
+      padding: 10px 2px;
       border-radius: 8px;
       font-size: 11px;
       font-weight: 700;
@@ -123,8 +123,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       transition: all 0.15s ease;
+    }
+
+    .tab-btn:active {
+      transform: scale(0.96);
     }
 
     .tab-btn.active {
@@ -135,10 +139,10 @@
     }
 
     .tab-icon {
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    /* Tab Content Wrappers */
+    /* टैब सेक्शन डिस्प्ले */
     .tab-content {
       display: none;
       flex-direction: column;
@@ -146,10 +150,10 @@
     }
 
     .tab-content.active {
-      display: flex;
+      display: flex !important;
     }
 
-    /* Module 1: 5-Star Reviews */
+    /* मॉड्यूल 1: 5-स्टार रिव्यूज */
     .steps {
       display: flex;
       justify-content: space-between;
@@ -194,6 +198,10 @@
       font-weight: bold;
       white-space: nowrap;
       cursor: pointer;
+    }
+
+    .pill-btn:active {
+      transform: scale(0.96);
     }
 
     .pill-btn.active {
@@ -287,20 +295,30 @@
 
     .btn-shuffle:active {
       background: #1e2630;
+      transform: scale(0.98);
     }
 
     .btn-cta {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       border-radius: 14px;
       border: none;
       background: var(--gold-grad);
       color: #0b0d10;
       font-size: 14.5px;
       font-weight: 900;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+      text-decoration: none;
+    }
+
+    .btn-cta:active {
+      transform: scale(0.98);
     }
 
     .btn-cta.copied {
@@ -308,7 +326,7 @@
       color: #fff !important;
     }
 
-    /* Module 2: In-Room Digital Menu */
+    /* मॉड्यूल 2: इंटरएक्टिव डिजिटल मेन्यू कार्ट */
     .menu-card {
       background: var(--card);
       border: 1px solid var(--border-subtle);
@@ -320,7 +338,7 @@
     }
 
     .menu-header {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: var(--gold-light);
       text-transform: uppercase;
@@ -335,10 +353,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 0;
+      padding: 8px 0;
       border-bottom: 1px dashed rgba(255,255,255,0.06);
     }
     .menu-item:last-child { border-bottom: none; }
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
     .item-name {
       font-size: 13px;
@@ -350,30 +374,123 @@
     }
 
     .item-tag-veg {
-      display: inline-block;
       width: 9px;
       height: 9px;
       border: 1px solid var(--veg);
       border-radius: 2px;
       background: var(--veg);
+      display: inline-block;
     }
 
     .item-tag-nonveg {
-      display: inline-block;
       width: 9px;
       height: 9px;
       border: 1px solid var(--nonveg);
       border-radius: 2px;
       background: var(--nonveg);
+      display: inline-block;
     }
 
     .item-price {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--gold);
     }
 
-    /* Module 3: WhatsApp Room Service Requests */
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #1f2732;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:active {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .qty-count {
+      font-size: 13px;
+      font-weight: 800;
+      width: 14px;
+      text-align: center;
+    }
+
+    .cart-summary-bar {
+      background: #0f141a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* मॉड्यूल 3: प्रैक्टिकल वाई-फाई और रूम सर्विस */
+    .room-selector-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .room-input {
+      background: #0e1216;
+      border: 1px solid var(--border-subtle);
+      color: var(--gold-light);
+      font-size: 15px;
+      font-weight: bold;
+      width: 90px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-align: center;
+      outline: none;
+    }
+
+    .wifi-hero-card {
+      background: linear-gradient(135deg, #161e27 0%, #0d1217 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wifi-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wifi-details {
+      background: #0c0f13;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+    }
+
     .service-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -386,12 +503,12 @@
       border-radius: 12px;
       padding: 14px 10px;
       text-align: center;
-      text-decoration: none;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 6px;
+      cursor: pointer;
       transition: all 0.15s ease;
     }
 
@@ -416,7 +533,7 @@
       color: var(--text-sub);
     }
 
-    /* Module 4: Direct Booking Card */
+    /* मॉड्यूल 4: डायरेक्ट बुकिंग */
     .booking-card {
       background: linear-gradient(145deg, #161e27 0%, #0d1217 100%);
       border: 1px solid var(--border);
@@ -429,7 +546,6 @@
     }
 
     .discount-tag {
-      display: inline-block;
       background: #064e3b;
       border: 1px solid #10b981;
       color: #6ee7b7;
@@ -455,18 +571,7 @@
       line-height: 1.5;
     }
 
-    .wifi-box {
-      background: #0f141a;
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-    }
-
-    /* Footer Action Bar */
+    /* फुटर */
     .footer {
       margin-top: 4px;
       background: #101418;
@@ -488,10 +593,6 @@
       font-weight: bold;
     }
 
-    .f-link:active {
-      color: var(--gold-light);
-    }
-
     .f-icon {
       width: 38px;
       height: 38px;
@@ -509,7 +610,7 @@
 
   <div class="container">
     
-    <!-- Grand Header -->
+    <!-- हेडर -->
     <header class="header">
       <div class="hotel-badge">5-STAR LUXURY HOSPITALITY</div>
       <h1 class="brand-title">SAYAJI</h1>
@@ -521,24 +622,24 @@
       </div>
     </header>
 
-    <!-- 4 Feature Tabs -->
+    <!-- 4 मेन नेविगेशन टैब्स -->
     <nav class="nav-tabs">
-      <button class="tab-btn active" onclick="switchMainTab('reviews', this)">
+      <button class="tab-btn active" id="nav-reviews" onclick="window.switchTab('reviews')">
         <span class="tab-icon">⭐</span> Review
       </button>
-      <button class="tab-btn" onclick="switchMainTab('dining', this)">
+      <button class="tab-btn" id="nav-dining" onclick="window.switchTab('dining')">
         <span class="tab-icon">🍽️</span> Menu
       </button>
-      <button class="tab-btn" onclick="switchMainTab('services', this)">
+      <button class="tab-btn" id="nav-services" onclick="window.switchTab('services')">
         <span class="tab-icon">🛎️</span> Service
       </button>
-      <button class="tab-btn" onclick="switchMainTab('booking', this)">
+      <button class="tab-btn" id="nav-booking" onclick="window.switchTab('booking')">
         <span class="tab-icon">🏨</span> Direct Stay
       </button>
     </nav>
 
-    <!-- ================= TAB 1: 5-STAR REVIEWS ================= -->
-    <div id="tab-reviews" class="tab-content active">
+    <!-- ================= 1. रिव्यूज टैब ================= -->
+    <div id="view-reviews" class="tab-content active">
       
       <div class="steps">
         <div><span class="step-num">1</span> Pick Experience</div>
@@ -547,18 +648,18 @@
       </div>
 
       <div class="pills">
-        <button class="pill-btn active" id="pill-all" onclick="setCategory('all')">✨ ALL EXPERIENCE</button>
-        <button class="pill-btn" id="pill-stay" onclick="setCategory('stay')">🛏️ LUXURY STAY</button>
-        <button class="pill-btn" id="pill-dining" onclick="setCategory('dining')">🍢 KEBABSVILLE & DINING</button>
-        <button class="pill-btn" id="pill-events" onclick="setCategory('events')">🎉 BANQUETS & EVENTS</button>
-        <button class="pill-btn" id="pill-hospitality" onclick="setCategory('hospitality')">🛎️ FRONT DESK & STAFF</button>
+        <button class="pill-btn active" id="pill-all" onclick="window.setCategory('all')">✨ ALL EXPERIENCE</button>
+        <button class="pill-btn" id="pill-stay" onclick="window.setCategory('stay')">🛏️ LUXURY STAY</button>
+        <button class="pill-btn" id="pill-dining" onclick="window.setCategory('dining')">🍢 KEBABSVILLE & DINING</button>
+        <button class="pill-btn" id="pill-events" onclick="window.setCategory('events')">🎉 BANQUETS & EVENTS</button>
+        <button class="pill-btn" id="pill-hospitality" onclick="window.setCategory('hospitality')">🛎️ FRONT DESK & STAFF</button>
       </div>
 
       <div class="toolbar">
         <div class="live-status"><span class="dot"></span> 100% Unique Review</div>
         <div class="lang-box">
-          <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
+          <button class="lang-btn active" id="btn-en" onclick="window.setLanguage('en')">EN</button>
+          <button class="lang-btn" id="btn-hi" onclick="window.setLanguage('hi')">HINGLISH</button>
         </div>
       </div>
 
@@ -566,35 +667,59 @@
         <div class="review-content" id="review-target">Unmatched luxury hospitality at Sayaji Hotel Indore! The rooms are exceptionally clean, spacious, and comfortable. Breakfast spread was royal and front desk team was extremely courteous. 10/10 recommended in Indore!</div>
       </div>
 
-      <button class="btn-shuffle" onclick="nextReview()">
+      <button class="btn-shuffle" onclick="window.nextReview()">
         <span>🎲</span> NEXT REVIEW (DUSRA REVIEW)
       </button>
 
-      <button class="btn-cta" id="cta-btn" onclick="copyAndRedirect()">
+      <button class="btn-cta" id="cta-btn" onclick="window.copyAndRedirect()">
         📋 COPY & RATE 5-STAR
       </button>
 
     </div>
 
-    <!-- ================= TAB 2: IN-ROOM DINING MENU ================= -->
-    <div id="tab-dining" class="tab-content">
+    <!-- ================= 2. इन-रूम डिजिटल मेन्यू ================= -->
+    <div id="view-dining" class="tab-content">
       
       <div class="menu-card">
         <div class="menu-header">
           <span>🍢 Signature Starters</span>
           <span style="font-size: 10px; color: var(--gold);">24x7 KITCHEN</span>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-veg"></span> Paneer Tikka Angara</span>
-          <span class="item-price">₹425</span>
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-veg"></span> Paneer Tikka Angara</span>
+            <span class="item-price">₹425</span>
+          </div>
+          <div class="item-actions">
+            <button class="qty-btn" onclick="window.updateCart('Paneer Tikka Angara', 425, -1)">-</button>
+            <span class="qty-count" id="qty-item-1">0</span>
+            <button class="qty-btn" onclick="window.updateCart('Paneer Tikka Angara', 425, 1)">+</button>
+          </div>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-nonveg"></span> Kebabsville Murg Tikka</span>
-          <span class="item-price">₹545</span>
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-nonveg"></span> Kebabsville Murg Tikka</span>
+            <span class="item-price">₹545</span>
+          </div>
+          <div class="item-actions">
+            <button class="qty-btn" onclick="window.updateCart('Kebabsville Murg Tikka', 545, -1)">-</button>
+            <span class="qty-count" id="qty-item-2">0</span>
+            <button class="qty-btn" onclick="window.updateCart('Kebabsville Murg Tikka', 545, 1)">+</button>
+          </div>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-veg"></span> Crispy Corn Salt & Pepper</span>
-          <span class="item-price">₹360</span>
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-veg"></span> Crispy Corn Salt & Pepper</span>
+            <span class="item-price">₹360</span>
+          </div>
+          <div class="item-actions">
+            <button class="qty-btn" onclick="window.updateCart('Crispy Corn Salt & Pepper', 360, -1)">-</button>
+            <span class="qty-count" id="qty-item-3">0</span>
+            <button class="qty-btn" onclick="window.updateCart('Crispy Corn Salt & Pepper', 360, 1)">+</button>
+          </div>
         </div>
       </div>
 
@@ -603,113 +728,34 @@
           <span>🍲 Royal Main Course</span>
           <span style="font-size: 10px; color: var(--gold);">ROOM SERVICE</span>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-veg"></span> Sayaji Dal Makhani</span>
-          <span class="item-price">₹395</span>
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-veg"></span> Sayaji Dal Makhani</span>
+            <span class="item-price">₹395</span>
+          </div>
+          <div class="item-actions">
+            <button class="qty-btn" onclick="window.updateCart('Sayaji Dal Makhani', 395, -1)">-</button>
+            <span class="qty-count" id="qty-item-4">0</span>
+            <button class="qty-btn" onclick="window.updateCart('Sayaji Dal Makhani', 395, 1)">+</button>
+          </div>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-nonveg"></span> Handi Butter Chicken</span>
-          <span class="item-price">₹565</span>
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-nonveg"></span> Handi Butter Chicken</span>
+            <span class="item-price">₹565</span>
+          </div>
+          <div class="item-actions">
+            <button class="qty-btn" onclick="window.updateCart('Handi Butter Chicken', 565, -1)">-</button>
+            <span class="qty-count" id="qty-item-5">0</span>
+            <button class="qty-btn" onclick="window.updateCart('Handi Butter Chicken', 565, 1)">+</button>
+          </div>
         </div>
+
         <div class="menu-item">
-          <span class="item-name"><span class="item-tag-veg"></span> Subz Dum Biryani with Raita</span>
-          <span class="item-price">₹420</span>
-        </div>
-        <div class="menu-item">
-          <span class="item-name"><span class="item-tag-veg"></span> Butter Garlic Naan (2 Pcs)</span>
-          <span class="item-price">₹120</span>
-        </div>
-      </div>
-
-      <a href="tel:07314006666" class="btn-cta" style="text-decoration:none; text-align:center;">
-        📞 ORDER VIA INTERCOM (DIAL 9)
-      </a>
-
-    </div>
-
-    <!-- ================= TAB 3: 1-TAP ROOM SERVICE ================= -->
-    <div id="tab-services" class="tab-content">
-      
-      <div style="font-size: 12px; color: var(--text-sub); text-align: center; margin-bottom: 2px;">
-        ⚡ Instant WhatsApp Housekeeping & In-Room Requests
-      </div>
-
-      <div class="service-grid">
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk,%20Please%20send%20Extra%20Mineral%20Water%20Bottles%20to%20my%20room." class="service-btn" target="_blank">
-          <span class="service-icon">💧</span>
-          <span class="service-title">Mineral Water</span>
-          <span class="service-sub">Fresh Packaged Jars</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk,%20Requesting%20Fresh%20Bath%20Towels%20and%20Toiletries." class="service-btn" target="_blank">
-          <span class="service-icon">🧺</span>
-          <span class="service-title">Towels & Kit</span>
-          <span class="service-sub">Fresh Bathroom Linen</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Housekeeping,%20Please%20schedule%20cleaning%20for%20my%20room." class="service-btn" target="_blank">
-          <span class="service-icon">🧹</span>
-          <span class="service-title">Room Cleaning</span>
-          <span class="service-sub">Housekeeping Visit</span>
-        </a>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Front%20Desk,%20Need%20Bellboy%20Luggage%20Assistance%20for%20Check-out." class="service-btn" target="_blank">
-          <span class="service-icon">🧳</span>
-          <span class="service-title">Bellboy / Luggage</span>
-          <span class="service-sub">Checkout Assistance</span>
-        </a>
-      </div>
-
-      <div class="wifi-box">
-        <div>
-          <strong style="color:var(--gold-light);">📶 High-Speed Hotel Wi-Fi</strong><br>
-          <span style="color:#aaa;">Network: Sayaji_Guest</span>
-        </div>
-        <button onclick="navigator.clipboard.writeText('Sayaji@2026'); alert('Wi-Fi Password Copied!');" style="background:#1e2732; border:1px solid var(--border); color:#fff; padding:6px 10px; border-radius:6px; font-size:11px; font-weight:bold; cursor:pointer;">
-          Copy Password
-        </button>
-      </div>
-
-    </div>
-
-    <!-- ================= TAB 4: DIRECT STAY BOOKING ================= -->
-    <div id="tab-booking" class="tab-content">
-      
-      <div class="booking-card">
-        <span class="discount-tag">⭐ Exclusive Direct Guest Deal</span>
-        <h3 class="booking-title">Book Direct & Save Flat 15%</h3>
-        <p class="booking-desc">
-          Skip online travel portals like MakeMyTrip & Agoda. Get guaranteed lowest rates, free early check-in, and complimentary buffet breakfast.
-        </p>
-
-        <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20Reservations,%20I%20want%20to%20book%20a%20luxury%20room%20directly%20with%20the%2015%%20Direct%20Guest%20Offer." class="btn-cta" style="text-decoration:none; text-align:center;">
-          💬 WHATSAPP RESERVATION
-        </a>
-
-        <a href="tel:07314006666" style="text-decoration:none; color:var(--text-sub); font-size:12px; font-weight:bold; margin-top:4px;">
-          📞 Or Call Desk: +91 731 400 6666
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Quick Footer Actions -->
-    <footer class="footer">
-      <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">
-        <div class="f-icon">📍</div>
-        Map Location
-      </a>
-      <a href="tel:07314006666" class="f-link">
-        <div class="f-icon">📞</div>
-        Front Desk
-      </a>
-      <a href="https://sayajihotels.com" class="f-link" target="_blank">
-        <div class="f-icon">🌐</div>
-        Official Web
-      </a>
-    </footer>
-
-  </div>
-
-  <script>
-    // 
+          <div class="item-info">
+            <span class="item-name"><span class="item-tag-veg"></span> Butter Garlic Naan (2 Pcs)</span>
+            <span class="item-price">₹120</span>
+          </div>
+          <div class="item-acti
