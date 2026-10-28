@@ -8,7 +8,6 @@
     :root {
       --bg: #090a0c;
       --card: #13171c;
-      --card-inner: #1a2027;
       --gold: #d4af37;
       --gold-light: #fef08a;
       --gold-grad: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #996515 100%);
@@ -41,10 +40,9 @@
       max-width: 440px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
-    /* Header */
     .header {
       text-align: center;
       padding: 14px 6px 4px;
@@ -83,10 +81,10 @@
       gap: 6px;
       background: #171c23;
       border: 1px solid var(--border);
-      padding: 5px 14px;
+      padding: 4px 14px;
       border-radius: 20px;
-      font-size: 11.5px;
-      margin-top: 10px;
+      font-size: 11px;
+      margin-top: 8px;
     }
 
     .stars {
@@ -95,7 +93,7 @@
     }
 
     .section-title {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
       color: var(--gold-light);
       text-transform: uppercase;
@@ -103,7 +101,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     /* Review Card Module */
@@ -114,8 +112,7 @@
       padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      gap: 10px;
     }
 
     .steps {
@@ -221,7 +218,7 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 14px;
-      min-height: 90px;
+      min-height: 85px;
       display: flex;
       align-items: center;
     }
@@ -269,7 +266,6 @@
       justify-content: center;
       gap: 8px;
       box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
-      text-decoration: none;
     }
 
     .btn-cta.copied {
@@ -277,15 +273,15 @@
       color: #fff !important;
     }
 
-    /* Practical Wi-Fi Card */
+    /* Wi-Fi Card */
     .wifi-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 14px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .wifi-row {
@@ -300,11 +296,10 @@
       color: var(--gold-light);
       padding: 12px;
       border-radius: 10px;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: bold;
       cursor: pointer;
       text-align: center;
-      transition: background 0.2s;
     }
 
     .btn-wifi-copy.copied {
@@ -362,7 +357,7 @@
       padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn-action-green {
@@ -380,30 +375,9 @@
       gap: 6px;
     }
 
-    /* Toast Notification */
-    #copy-toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #10b981;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 10px 18px;
-      border-radius: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.6);
-      transition: transform 0.25s ease-out;
-      z-index: 9999;
-      pointer-events: none;
-    }
-    #copy-toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
     /* Footer */
     .footer {
-      margin-top: 4px;
+      margin-top: 2px;
       background: #101418;
       border-radius: 14px;
       padding: 10px;
@@ -440,7 +414,7 @@
 
   <div class="container">
     
-    <!-- Grand Header -->
+    <!-- Header -->
     <header class="header">
       <div class="since">5-STAR LUXURY HOSPITALITY</div>
       <h1 class="brand">SAYAJI</h1>
@@ -550,10 +524,7 @@
       </a>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="copy-toast">✓ COPIED TO CLIPBOARD!</div>
-
-    <!-- Footer Quick Actions -->
+    <!-- Footer -->
     <footer class="footer">
       <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">
         <div class="f-icon">📍</div>
@@ -620,4 +591,24 @@
           "Corporate event attend kiya yahan. Hall ka sound, AC aur food arrangements bilkul flawless the. Best event venue!"
         ],
         hospitality: [
-          "Front desk aur housekeepin
+          "Front desk aur housekeeping staff ka behaviour bohot respectful aur helpful raha. Har request 5 minute me complete hui. Shandar service!",
+          "Warm hospitality aur humble staff! Guest ki har choti zaroorat ka dhyan rakhte hain. Full 5-star hospitality banti hai."
+        ]
+      }
+    };
+
+    var currentCat = 'all';
+    var currentLang = 'en';
+    var lastIndex = 0;
+    
+    // Direct Official Google Maps Review Link for Sayaji Hotel Indore
+    var redirectUrl = "https://maps.app.goo.gl/W6N7fXk46JpYcZ347";
+
+    // Direct O(1) Instant Review Switcher
+    function nextReview() {
+      var list = reviews[currentLang][currentCat];
+      if (!list || list.length === 0) list = reviews['en']['all'];
+
+      var nextIdx = Math.floor(Math.random() * list.length);
+      if (nextIdx === lastIndex && list.length > 1) {
+    
