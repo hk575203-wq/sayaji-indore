@@ -6,67 +6,355 @@
   <title>Sayaji Hotel Indore | Guest Portal</title>
   <style>
     :root {
-      --bg: #090a0c; --card: #13171c; --card-inner: #1a2027; --gold: #d4af37; --gold-light: #fef08a;
+      --bg: #090a0c;
+      --card: #13171c;
+      --card-inner: #192028;
+      --gold: #d4af37;
+      --gold-light: #fef08a;
       --gold-grad: linear-gradient(135deg, #fef08a, #d4af37 50%, #996515);
-      --text: #fff; --text-sub: #9ca3af; --border: rgba(212,175,55,0.28); --green: #10b981;
-      --veg: #22c55e; --nonveg: #ef4444;
+      --text: #ffffff;
+      --text-sub: #9ca3af;
+      --border: rgba(212, 175, 55, 0.28);
+      --green: #10b981;
+      --veg: #22c55e;
+      --nonveg: #ef4444;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; padding: 12px; }
-    .wrap { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 11px; }
-    
-    .header { text-align: center; padding: 10px 0 2px; }
-    .since { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 800; text-transform: uppercase; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Grand Header */
+    .header { text-align: center; padding: 10px 6px 2px; }
+    .since { font-size: 10px; letter-spacing: 3px; color: var(--gold); font-weight: 800; text-transform: uppercase; }
     .brand { font-family: Georgia, serif; font-size: 32px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin: 1px 0; }
-    .sub { font-size: 11px; color: var(--text-sub); }
-    .rating-pill { display: inline-flex; align-items: center; gap: 6px; background: #171c23; border: 1px solid var(--border); padding: 3px 12px; border-radius: 20px; font-size: 11px; margin-top: 5px; }
+    .sub { font-size: 11px; color: var(--text-sub); letter-spacing: 1px; }
 
-    /* GUEST SERVICES & WIFI */
-    .hub { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
-    .wifi-row { display: flex; justify-content: space-between; align-items: center; background: #0c0f13; padding: 8px 10px; border-radius: 8px; font-size: 11.5px; }
-    .btn-wifi { background: #1a222a; border: 1px solid var(--border); color: var(--gold-light); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer; }
-    .btn-wifi.copied { background: var(--green); color: #fff; }
-    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .hub-btn { background: #171d24; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px; text-align: center; text-decoration: none; color: #fff; font-size: 11px; font-weight: bold; }
-    .hub-btn:active { background: #222b35; border-color: var(--gold); }
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #171c23;
+      border: 1px solid var(--border);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      margin-top: 6px;
+    }
 
-    /* IN-ROOM DINING MENU */
-    .menu-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-    .menu-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 6px; font-size: 11.5px; font-weight: 800; color: var(--gold-light); text-transform: uppercase; }
-    .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 12px; }
-    .item-name { display: flex; align-items: center; gap: 6px; color: #f3f4f6; }
-    .tag-v { width: 8px; height: 8px; border: 1px solid var(--veg); background: var(--veg); border-radius: 2px; }
-    .tag-nv { width: 8px; height: 8px; border: 1px solid var(--nonveg); background: var(--nonveg); border-radius: 2px; }
-    .item-price { font-weight: 800; color: var(--gold); font-size: 11.5px; }
-    .btn-order { background: #25D366; color: #08210f; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 900; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 2px; }
+    /* SECTION 1: REVIEW SYSTEM (TOP PRIORITY) */
+    .rev-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
 
-    /* REVIEW ENGINE */
-    .rev-module { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 9px; }
-    .steps { display: flex; justify-content: space-between; background: #0c0f13; padding: 6px 10px; border-radius: 8px; font-size: 10.5px; color: var(--text-sub); }
-    .step-num { background: var(--gold); color: #000; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; margin-right: 3px; }
-    
-    .pills { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      background: #0c0f13;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 10.5px;
+      color: var(--text-sub);
+    }
+
+    .step-num {
+      background: var(--gold);
+      color: #000;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: bold;
+      margin-right: 3px;
+    }
+
+    .pills { display: flex; gap: 5px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
     .pills::-webkit-scrollbar { display: none; }
-    .pill { background: #1a222a; border: 1px solid rgba(255,255,255,0.08); color: #9ca3af; padding: 7px 11px; border-radius: 8px; font-size: 11px; font-weight: bold; white-space: nowrap; cursor: pointer; }
-    .pill.active { background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #fff; border-color: var(--gold); }
-    
-    .toolbar { display: flex; justify-content: space-between; font-size: 11px; color: var(--gold); font-weight: bold; padding: 0 2px; }
-    .lang-btn { background: transparent; border: none; color: #888; font-size: 11px; font-weight: bold; padding: 2px 7px; cursor: pointer; }
+
+    .pill {
+      background: #192028;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #9ca3af;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .pill.active {
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      color: #fff;
+      border-color: var(--gold);
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2px;
+    }
+
+    .live-status {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dot { width: 6.5px; height: 6.5px; border-radius: 50%; background: var(--green); }
+
+    .lang-box { display: flex; background: #0c0f13; border-radius: 6px; padding: 2px; }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #888;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      cursor: pointer;
+    }
     .lang-btn.active { color: #fff; border-bottom: 2px solid var(--gold); }
-    
-    .review-box { background: #0c0f13; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; min-height: 85px; display: flex; align-items: center; font-size: 13px; line-height: 1.5; color: #f3f4f6; }
-    .btn-shuffle { width: 100%; padding: 11px; border-radius: 9px; border: 1px dashed var(--border); background: #141920; color: var(--gold-light); font-size: 12px; font-weight: bold; cursor: pointer; }
-    .btn-cta { width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--gold-grad); color: #000; font-size: 14px; font-weight: 900; letter-spacing: 0.5px; cursor: pointer; }
+
+    /* EDITABLE REVIEW BOX */
+    .review-wrapper { position: relative; }
+
+    .review-textarea {
+      width: 100%;
+      background: #0c0f13;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      color: #f3f4f6;
+      font-family: inherit;
+      font-size: 13.5px;
+      line-height: 1.55;
+      padding: 12px 14px;
+      resize: none;
+      min-height: 95px;
+      outline: none;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .review-textarea:focus { border-color: var(--gold); }
+
+    .edit-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-size: 10px;
+      color: #71717a;
+      pointer-events: none;
+    }
+
+    .btn-shuffle {
+      width: 100%;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      background: #161c24;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-shuffle:active { background: #222b36; }
+
+    .btn-cta {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold-grad);
+      color: #000;
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+    }
+
     .btn-cta.copied { background: var(--green) !important; color: #fff !important; }
-    
-    .footer { background: #101418; border-radius: 10px; padding: 8px; display: flex; justify-content: space-around; font-size: 10px; font-weight: bold; }
+
+    /* SECTION 2: WI-FI CARD */
+    .wifi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wifi-info { font-size: 12px; }
+    .wifi-info strong { color: var(--gold-light); }
+
+    .btn-wifi {
+      background: #1a222a;
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-wifi.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+    /* SECTION 3: IN-ROOM DINING MENU WITH REAL PHOTOS */
+    .menu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.06);
+    }
+
+    .menu-item:last-child { border-bottom: none; }
+
+    .menu-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
+    }
+
+    .menu-details { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+
+    .dish-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-v { width: 8px; height: 8px; border: 1px solid var(--veg); background: var(--veg); border-radius: 2px; display: inline-block; }
+    .tag-nv { width: 8px; height: 8px; border: 1px solid var(--nonveg); background: var(--nonveg); border-radius: 2px; display: inline-block; }
+
+    .dish-desc { font-size: 10.5px; color: var(--text-sub); line-height: 1.3; }
+    .dish-price { font-size: 12px; font-weight: 800; color: var(--gold); }
+
+    .btn-order {
+      background: #25D366;
+      color: #08210f;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 4px;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.2);
+    }
+
+    /* SECTION 4: GUEST SERVICES & DIRECT STAY */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .service-btn {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .service-btn:active { background: #1a222a; border-color: var(--gold); }
+
+    /* Footer */
+    .footer {
+      background: #101418;
+      border-radius: 12px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 10.5px;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
     .f-link { color: var(--text-sub); text-decoration: none; }
   </style>
 </head>
 <body>
+
   <div class="wrap">
     
-    <div class="header">
+    <!-- Grand Header -->
+    <header class="header">
       <div class="since">5-STAR LUXURY HOSPITALITY</div>
       <h1 class="brand">SAYAJI</h1>
       <div class="sub">Vijay Nagar • Indore • Madhya Pradesh</div>
@@ -74,57 +362,14 @@
         <span style="color:#4285F4;font-weight:bold;">G</span> Google Rating 4.6
         <span style="color:#f59e0b;">★★★★★</span> (24,000+)
       </div>
-    </div>
+    </header>
 
-    <!-- 1. GUEST SERVICES & WIFI -->
-    <div class="hub">
-      <div class="wifi-row">
-        <div>📶 Wi-Fi: <strong style="color:var(--gold-light);">Sayaji_Guest_5G</strong> (Pass: Sayaji@2026)</div>
-        <button class="btn-wifi" id="btn-wifi" onclick="copyWifi()">Copy</button>
-      </div>
-      <div class="hub-grid">
-        <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20Room%20Service,%20Requesting%20assistance%20for%20my%20room." class="hub-btn" target="_blank">🛎️ Room Service</a>
-        <a href="https://wa.me/918319949010?text=Hi%20Sayaji,%20I%20want%20to%20book%20direct%20with%20Flat%2015%%20discount." class="hub-btn" target="_blank">🏷️ Book (15% OFF)</a>
-      </div>
-    </div>
-
-    <!-- 2. IN-ROOM DINING MENU -->
-    <div class="menu-card">
-      <div class="menu-head">
-        <span>🍽️ In-Room Dining Menu</span>
-        <span style="color:var(--gold); font-size:10px;">24x7 KITCHEN</span>
-      </div>
-      <div class="menu-item">
-        <span class="item-name"><span class="tag-v"></span> Paneer Tikka Angara</span>
-        <span class="item-price">₹425</span>
-      </div>
-      <div class="menu-item">
-        <span class="item-name"><span class="tag-nv"></span> Kebabsville Murg Tikka</span>
-        <span class="item-price">₹545</span>
-      </div>
-      <div class="menu-item">
-        <span class="item-name"><span class="tag-v"></span> Sayaji Dal Makhani</span>
-        <span class="item-price">₹395</span>
-      </div>
-      <div class="menu-item">
-        <span class="item-name"><span class="tag-nv"></span> Handi Butter Chicken</span>
-        <span class="item-price">₹565</span>
-      </div>
-      <div class="menu-item">
-        <span class="item-name"><span class="tag-v"></span> Butter Garlic Naan (2 Pcs)</span>
-        <span class="item-price">₹120</span>
-      </div>
-      <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20In-Room%20Dining,%20I%20want%20to%20order%20food%20for%20my%20room.%20Please%20share%20the%20full%20menu." class="btn-order" target="_blank">
-        💬 ORDER FOOD ON WHATSAPP
-      </a>
-    </div>
-
-    <!-- 3. REVIEW ACCELERATOR ENGINE -->
-    <div class="rev-module">
+    <!-- 1. REVIEW SYSTEM (TOP PRIORITY) -->
+    <div class="rev-card">
       <div class="steps">
         <div><span class="step-num">1</span> Pick Topic</div>
-        <div><span class="step-num">2</span> Tap Button</div>
-        <div><span class="step-num">3</span> Paste & Post</div>
+        <div><span class="step-num">2</span> Tap to Edit (Optional)</div>
+        <div><span class="step-num">3</span> Post & Rate</div>
       </div>
 
       <div class="pills">
@@ -136,29 +381,106 @@
       </div>
 
       <div class="toolbar">
-        <div>● 1,400+ Unique Combinations</div>
-        <div>
+        <div class="live-status"><span class="dot"></span> Authentic Guest Experience</div>
+        <div class="lang-box">
           <button class="lang-btn active" id="b-en" onclick="setL('en')">EN</button>
           <button class="lang-btn" id="b-hi" onclick="setL('hi')">HINGLISH</button>
         </div>
       </div>
 
-      <div class="review-box" id="rev-text">Unmatched luxury experience at Sayaji Hotel Indore! Rooms are super spacious, perfectly clean, and equipped with top-tier amenities. 10/10 recommended for everyone visiting Indore!</div>
+      <!-- EDITABLE REVIEW TEXTAREA -->
+      <div class="review-wrapper">
+        <textarea id="rev-text" class="review-textarea" rows="4">Unmatched luxury experience at Sayaji Hotel Indore! Rooms are super spacious, perfectly clean, and equipped with top-tier amenities. 10/10 recommended for everyone visiting Indore!</textarea>
+        <span class="edit-hint">✏️ Edit text anytime</span>
+      </div>
 
       <button class="btn-shuffle" onclick="nextRev()">🎲 NEXT REVIEW (DUSRA REVIEW)</button>
       <button class="btn-cta" id="cta-btn" onclick="copyGo()">📋 COPY & RATE 5-STAR</button>
     </div>
 
-    <div class="footer">
+    <!-- 2. COMPLIMENTARY WI-FI CARD (BELOW REVIEWS) -->
+    <div class="wifi-card">
+      <div class="wifi-info">
+        📶 Wi-Fi: <strong>Sayaji_Guest_5G</strong><br>
+        <span style="color:var(--text-sub);">Password:</span> <strong style="color:var(--gold-light);">Sayaji@2026</strong>
+      </div>
+      <button class="btn-wifi" id="btn-wifi" onclick="copyWifi()">Copy Pass</button>
+    </div>
+
+    <!-- 3. IN-ROOM DINING MENU WITH REAL DISH PHOTOS -->
+    <div class="menu-card">
+      <div class="menu-header">
+        <span>🍽️ In-Room Dining Menu</span>
+        <span style="color:var(--gold); font-size:10px;">24x7 KITCHEN</span>
+      </div>
+
+      <!-- Item 1 -->
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=160&q=80" class="menu-thumb" alt="Paneer Tikka">
+        <div class="menu-details">
+          <div class="dish-title"><span class="tag-v"></span> Paneer Tikka Angara</div>
+          <div class="dish-desc">Clay-oven char-grilled paneer infused with royal Kashmiri spices</div>
+          <div class="dish-price">₹425</div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=160&q=80" class="menu-thumb" alt="Murgh Tikka">
+        <div class="menu-details">
+          <div class="dish-title"><span class="tag-nv"></span> Kebabsville Murg Tikka</div>
+          <div class="dish-desc">Tender boneless chicken roasted live over charcoal embers</div>
+          <div class="dish-price">₹545</div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=160&q=80" class="menu-thumb" alt="Dal Makhani">
+        <div class="menu-details">
+          <div class="dish-title"><span class="tag-v"></span> Sayaji Dal Makhani</div>
+          <div class="dish-desc">Slow-cooked black lentils overnight in rich white butter & cream</div>
+          <div class="dish-price">₹395</div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=160&q=80" class="menu-thumb" alt="Butter Chicken">
+        <div class="menu-details">
+          <div class="dish-title"><span class="tag-nv"></span> Handi Butter Chicken</div>
+          <div class="dish-desc">Succulent chicken simmered in aromatic silk tomato gravy</div>
+          <div class="dish-price">₹565</div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20In-Room%20Dining,%20I%20want%20to%20order%20food%20for%20my%20room.%20Please%20share%20the%20full%20menu." class="btn-order" target="_blank">
+        💬 ORDER FOOD ON WHATSAPP
+      </a>
+    </div>
+
+    <!-- 4. GUEST SERVICES & DIRECT STAY BOOKING -->
+    <div class="services-grid">
+      <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20Room%20Service,%20Requesting%20assistance%20for%20my%20room." class="service-btn" target="_blank">
+        <span style="font-size:18px;">🛎️</span>
+        <span>Room Service</span>
+      </a>
+      <a href="https://wa.me/918319949010?text=Hi%20Sayaji,%20I%20want%20to%20book%20direct%20with%20Flat%2015%%20discount." class="service-btn" target="_blank">
+        <span style="font-size:18px;">🏷️</span>
+        <span style="color:var(--gold-light);">Direct Stay (15% OFF)</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
       <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">📍 Directions</a>
       <a href="tel:07314006666" class="f-link">📞 Reception Desk</a>
       <a href="https://sayajihotels.com" class="f-link" target="_blank">🌐 Official Website</a>
-    </div>
+    </footer>
 
   </div>
 
   <script>
-    // COMBINATORIAL ENGINE (1,400+ Non-Repetitive Combinations)
     var intros = {
       en: [
         "Unmatched luxury experience at Sayaji Hotel Indore!",
@@ -249,8 +571,8 @@
     };
 
     var curC = 'all', curL = 'en';
-    // Direct Official Google Review Writing Link (with verified Place ID)
-    var targetUrl = "https://search.google.com/local/writereview?placeid=ChIJ3VHKFKgCYzkR61I0bzuwhPY";
+    // Verified Place ID for Sayaji Hotel Indore
+        var targetUrl = "https://search.google.com/local/writereview?placeid=ChIJ3VHKFKgCYzkR61I0bzuwhPY";
 
     function nextRev() {
       var introArr = intros[curL];
@@ -271,7 +593,7 @@
       var oIdx = Math.floor(Math.random() * outroArr.length);
 
       var result = introArr[iIdx] + specArr[sIdx] + outroArr[oIdx];
-      document.getElementById('rev-text').innerText = result;
+      document.getElementById('rev-text').value = result;
     }
 
     function setCat(c) {
@@ -290,7 +612,7 @@
     }
 
     function copyGo() {
-      var txt = document.getElementById('rev-text').innerText.trim();
+      var txt = document.getElementById('rev-text').value.trim();
       var btn = document.getElementById('cta-btn');
       btn.classList.add('copied');
       btn.innerText = "✓ COPIED! OPENING GOOGLE...";
@@ -323,7 +645,7 @@
         document.execCommand("copy");
         document.body.removeChild(t);
       }
-      setTimeout(function(){ btn.classList.remove('copied'); btn.innerText = "Copy"; }, 2500);
+      setTimeout(function(){ btn.classList.remove('copied'); btn.innerText = "Copy Pass"; }, 2500);
     }
   </script>
 </body>
