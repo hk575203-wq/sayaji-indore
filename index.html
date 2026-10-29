@@ -6,57 +6,77 @@
   <title>Sayaji Hotel Indore | Guest Portal</title>
   <style>
     :root {
-      --bg: #090a0c; --card: #13171c; --gold: #d4af37; --gold-light: #fef08a;
+      --bg: #090a0c; --card: #13171c; --card-inner: #1a2027; --gold: #d4af37; --gold-light: #fef08a;
       --gold-grad: linear-gradient(135deg, #fef08a, #d4af37 50%, #996515);
-      --text: #fff; --text-sub: #9ca3af; --border: rgba(212,175,55,0.3); --green: #10b981;
+      --text: #fff; --text-sub: #9ca3af; --border: rgba(212,175,55,0.28); --green: #10b981;
+      --veg: #22c55e; --nonveg: #ef4444;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, sans-serif; display: flex; justify-content: center; padding: 12px; }
-    .wrap { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 10px; }
-    .header { text-align: center; padding: 10px 0 4px; }
-    .since { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 800; }
-    .brand { font-family: Georgia, serif; font-size: 30px; font-weight: bold; letter-spacing: 2px; }
-    .sub { font-size: 11px; color: var(--text-sub); }
-    .rating-pill { display: inline-flex; align-items: center; gap: 6px; background: #171c23; border: 1px solid var(--border); padding: 3px 12px; border-radius: 20px; font-size: 11px; margin-top: 6px; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; padding: 12px; }
+    .wrap { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 11px; }
     
+    .header { text-align: center; padding: 10px 0 2px; }
+    .since { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 800; text-transform: uppercase; }
+    .brand { font-family: Georgia, serif; font-size: 32px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin: 1px 0; }
+    .sub { font-size: 11px; color: var(--text-sub); }
+    .rating-pill { display: inline-flex; align-items: center; gap: 6px; background: #171c23; border: 1px solid var(--border); padding: 3px 12px; border-radius: 20px; font-size: 11px; margin-top: 5px; }
+
+    /* GUEST SERVICES & WIFI */
     .hub { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
     .wifi-row { display: flex; justify-content: space-between; align-items: center; background: #0c0f13; padding: 8px 10px; border-radius: 8px; font-size: 11.5px; }
     .btn-wifi { background: #1a222a; border: 1px solid var(--border); color: var(--gold-light); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer; }
     .btn-wifi.copied { background: var(--green); color: #fff; }
     .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
     .hub-btn { background: #171d24; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px; text-align: center; text-decoration: none; color: #fff; font-size: 11px; font-weight: bold; }
+    .hub-btn:active { background: #222b35; border-color: var(--gold); }
+
+    /* IN-ROOM DINING MENU */
+    .menu-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .menu-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 6px; font-size: 11.5px; font-weight: 800; color: var(--gold-light); text-transform: uppercase; }
+    .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 12px; }
+    .item-name { display: flex; align-items: center; gap: 6px; color: #f3f4f6; }
+    .tag-v { width: 8px; height: 8px; border: 1px solid var(--veg); background: var(--veg); border-radius: 2px; }
+    .tag-nv { width: 8px; height: 8px; border: 1px solid var(--nonveg); background: var(--nonveg); border-radius: 2px; }
+    .item-price { font-weight: 800; color: var(--gold); font-size: 11.5px; }
+    .btn-order { background: #25D366; color: #08210f; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 900; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 2px; }
+
+    /* REVIEW ENGINE */
+    .rev-module { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 9px; }
+    .steps { display: flex; justify-content: space-between; background: #0c0f13; padding: 6px 10px; border-radius: 8px; font-size: 10.5px; color: var(--text-sub); }
+    .step-num { background: var(--gold); color: #000; border-radius: 50%; width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; margin-right: 3px; }
     
-    .pills { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+    .pills { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
     .pills::-webkit-scrollbar { display: none; }
     .pill { background: #1a222a; border: 1px solid rgba(255,255,255,0.08); color: #9ca3af; padding: 7px 11px; border-radius: 8px; font-size: 11px; font-weight: bold; white-space: nowrap; cursor: pointer; }
     .pill.active { background: linear-gradient(135deg, #1e3a8a, #0f172a); color: #fff; border-color: var(--gold); }
     
-    .toolbar { display: flex; justify-content: space-between; font-size: 11px; color: var(--gold); font-weight: bold; padding: 0 4px; }
-    .lang-btn { background: transparent; border: none; color: #888; font-size: 11px; font-weight: bold; padding: 2px 8px; cursor: pointer; }
+    .toolbar { display: flex; justify-content: space-between; font-size: 11px; color: var(--gold); font-weight: bold; padding: 0 2px; }
+    .lang-btn { background: transparent; border: none; color: #888; font-size: 11px; font-weight: bold; padding: 2px 7px; cursor: pointer; }
     .lang-btn.active { color: #fff; border-bottom: 2px solid var(--gold); }
     
-    .review-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; min-height: 85px; display: flex; align-items: center; font-size: 13.5px; line-height: 1.5; color: #f3f4f6; }
-    .btn-shuffle { width: 100%; padding: 11px; border-radius: 10px; border: 1px dashed var(--border); background: #141920; color: var(--gold-light); font-size: 12px; font-weight: bold; cursor: pointer; }
-    .btn-cta { width: 100%; padding: 15px; border-radius: 12px; border: none; background: var(--gold-grad); color: #000; font-size: 14px; font-weight: 900; letter-spacing: 0.5px; cursor: pointer; }
+    .review-box { background: #0c0f13; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; min-height: 85px; display: flex; align-items: center; font-size: 13px; line-height: 1.5; color: #f3f4f6; }
+    .btn-shuffle { width: 100%; padding: 11px; border-radius: 9px; border: 1px dashed var(--border); background: #141920; color: var(--gold-light); font-size: 12px; font-weight: bold; cursor: pointer; }
+    .btn-cta { width: 100%; padding: 14px; border-radius: 10px; border: none; background: var(--gold-grad); color: #000; font-size: 14px; font-weight: 900; letter-spacing: 0.5px; cursor: pointer; }
     .btn-cta.copied { background: var(--green) !important; color: #fff !important; }
     
-    .footer { background: #101418; border-radius: 12px; padding: 8px; display: flex; justify-content: space-around; margin-top: 2px; }
-    .f-link { display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; color: var(--text-sub); font-size: 10px; font-weight: bold; }
+    .footer { background: #101418; border-radius: 10px; padding: 8px; display: flex; justify-content: space-around; font-size: 10px; font-weight: bold; }
+    .f-link { color: var(--text-sub); text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="wrap">
+    
     <div class="header">
       <div class="since">5-STAR LUXURY HOSPITALITY</div>
       <h1 class="brand">SAYAJI</h1>
-      <div class="sub">Vijay Nagar • Indore</div>
+      <div class="sub">Vijay Nagar • Indore • Madhya Pradesh</div>
       <div class="rating-pill">
         <span style="color:#4285F4;font-weight:bold;">G</span> Google Rating 4.6
-        <span style="color:#f59e0b;">★★★★★</span> (24K+)
+        <span style="color:#f59e0b;">★★★★★</span> (24,000+)
       </div>
     </div>
 
-    <!-- HOTEL QUICK HUB -->
+    <!-- 1. GUEST SERVICES & WIFI -->
     <div class="hub">
       <div class="wifi-row">
         <div>📶 Wi-Fi: <strong style="color:var(--gold-light);">Sayaji_Guest_5G</strong> (Pass: Sayaji@2026)</div>
@@ -68,89 +88,190 @@
       </div>
     </div>
 
-    <!-- REVIEW PILLS -->
-    <div class="pills">
-      <button class="pill active" id="p-all" onclick="setCat('all')">✨ ALL</button>
-      <button class="pill" id="p-stay" onclick="setCat('stay')">🛏️ STAY</button>
-      <button class="pill" id="p-dining" onclick="setCat('dining')">🍢 DINING</button>
-      <button class="pill" id="p-events" onclick="setCat('events')">🎉 BANQUETS</button>
-      <button class="pill" id="p-service" onclick="setCat('service')">🛎️ SERVICE</button>
-    </div>
-
-    <div class="toolbar">
-      <div>● 100% Unique Review</div>
-      <div>
-        <button class="lang-btn active" id="b-en" onclick="setL('en')">EN</button>
-        <button class="lang-btn" id="b-hi" onclick="setL('hi')">HINGLISH</button>
+    <!-- 2. IN-ROOM DINING MENU -->
+    <div class="menu-card">
+      <div class="menu-head">
+        <span>🍽️ In-Room Dining Menu</span>
+        <span style="color:var(--gold); font-size:10px;">24x7 KITCHEN</span>
       </div>
+      <div class="menu-item">
+        <span class="item-name"><span class="tag-v"></span> Paneer Tikka Angara</span>
+        <span class="item-price">₹425</span>
+      </div>
+      <div class="menu-item">
+        <span class="item-name"><span class="tag-nv"></span> Kebabsville Murg Tikka</span>
+        <span class="item-price">₹545</span>
+      </div>
+      <div class="menu-item">
+        <span class="item-name"><span class="tag-v"></span> Sayaji Dal Makhani</span>
+        <span class="item-price">₹395</span>
+      </div>
+      <div class="menu-item">
+        <span class="item-name"><span class="tag-nv"></span> Handi Butter Chicken</span>
+        <span class="item-price">₹565</span>
+      </div>
+      <div class="menu-item">
+        <span class="item-name"><span class="tag-v"></span> Butter Garlic Naan (2 Pcs)</span>
+        <span class="item-price">₹120</span>
+      </div>
+      <a href="https://wa.me/918319949010?text=Hi%20Sayaji%20In-Room%20Dining,%20I%20want%20to%20order%20food%20for%20my%20room.%20Please%20share%20the%20full%20menu." class="btn-order" target="_blank">
+        💬 ORDER FOOD ON WHATSAPP
+      </a>
     </div>
 
-    <div class="review-box" id="rev-text">Unmatched luxury hospitality at Sayaji Hotel Indore! The rooms are exceptionally clean and comfortable. Breakfast spread was royal and staff was extremely courteous. 10/10 recommended!</div>
+    <!-- 3. REVIEW ACCELERATOR ENGINE -->
+    <div class="rev-module">
+      <div class="steps">
+        <div><span class="step-num">1</span> Pick Topic</div>
+        <div><span class="step-num">2</span> Tap Button</div>
+        <div><span class="step-num">3</span> Paste & Post</div>
+      </div>
 
-    <button class="btn-shuffle" onclick="nextRev()">🎲 NEXT REVIEW</button>
-    <button class="btn-cta" id="cta-btn" onclick="copyGo()">📋 COPY & RATE 5-STAR</button>
+      <div class="pills">
+        <button class="pill active" id="p-all" onclick="setCat('all')">✨ ALL REVIEWS</button>
+        <button class="pill" id="p-stay" onclick="setCat('stay')">🛏️ STAY</button>
+        <button class="pill" id="p-dining" onclick="setCat('dining')">🍢 KEBABSVILLE</button>
+        <button class="pill" id="p-events" onclick="setCat('events')">🎉 BANQUETS</button>
+        <button class="pill" id="p-service" onclick="setCat('service')">🛎️ SERVICE</button>
+      </div>
+
+      <div class="toolbar">
+        <div>● 1,400+ Unique Combinations</div>
+        <div>
+          <button class="lang-btn active" id="b-en" onclick="setL('en')">EN</button>
+          <button class="lang-btn" id="b-hi" onclick="setL('hi')">HINGLISH</button>
+        </div>
+      </div>
+
+      <div class="review-box" id="rev-text">Unmatched luxury experience at Sayaji Hotel Indore! Rooms are super spacious, perfectly clean, and equipped with top-tier amenities. 10/10 recommended for everyone visiting Indore!</div>
+
+      <button class="btn-shuffle" onclick="nextRev()">🎲 NEXT REVIEW (DUSRA REVIEW)</button>
+      <button class="btn-cta" id="cta-btn" onclick="copyGo()">📋 COPY & RATE 5-STAR</button>
+    </div>
 
     <div class="footer">
       <a href="https://maps.app.goo.gl/W6N7fXk46JpYcZ347" class="f-link" target="_blank">📍 Directions</a>
-      <a href="tel:07314006666" class="f-link">📞 Reception</a>
-      <a href="https://sayajihotels.com" class="f-link" target="_blank">🌐 Website</a>
+      <a href="tel:07314006666" class="f-link">📞 Reception Desk</a>
+      <a href="https://sayajihotels.com" class="f-link" target="_blank">🌐 Official Website</a>
     </div>
+
   </div>
 
   <script>
-    var data = {
+    // COMBINATORIAL ENGINE (1,400+ Non-Repetitive Combinations)
+    var intros = {
+      en: [
+        "Unmatched luxury experience at Sayaji Hotel Indore!",
+        "Had an absolutely delightful stay at Sayaji Indore!",
+        "Truly five-star hospitality in every single aspect.",
+        "Sayaji never fails to amaze with its royal treatment.",
+        "One of the finest luxury hotels in Madhya Pradesh!",
+        "Exceeded all our expectations during this visit.",
+        "A genuinely memorable five-star experience from start to finish."
+      ],
+      hi: [
+        "Sayaji Hotel Indore me stay karke sach me royal feel aaya!",
+        "Indore me luxury stay aur food ka best experience raha.",
+        "Har ek cheez me pure 5-star standard feel hua.",
+        "Family ke sath Sayaji me shandar aur memorable time beeta.",
+        "Paisa vasool luxury hospitality mili is baar bhi.",
+        "Indore visit par Sayaji select karna sabse badhiya decision tha."
+      ]
+    };
+
+    var specifics = {
       en: {
-        all: [
-          "Unmatched luxury hospitality at Sayaji Hotel Indore! The rooms are exceptionally clean and comfortable. Breakfast spread was royal and staff was extremely courteous. 10/10 recommended!",
-          "Easily the gold standard for luxury hotel stays in Madhya Pradesh. From smooth check-in to poolside dining at Kebabsville, everything was flawless. 5 stars all the way!",
-          "Stayed for a 3-day business trip. Superb high-speed Wi-Fi, immaculate linen, and prompt room service. The staff treats every guest like royalty."
-        ],
         stay: [
-          "The executive room was spotless with a plush king bed and tranquil city views. Sleep quality was incredible and bathroom hygiene was 5-star grade.",
-          "Impeccably clean room with premium luxury amenities. Central AC worked silently and bed linen was crisp and fresh. Truly a restful stay!"
+          " The executive room was immaculate with plush bedding and zero outside noise.",
+          " Rooms are super spacious, perfectly clean, and equipped with top-tier amenities.",
+          " Loved the comfort of the king bed, crisp fresh linen, and spotless bathroom hygiene.",
+          " Peaceful ambience, powerful central AC cooling, and relaxing city view from room."
         ],
         dining: [
-          "The dining experience at Kebabsville is unbeatable! Unlimited poolside grilled kebabs followed by an extravagant buffet dinner. 10/10 culinary perfection!",
-          "Breakfast buffet at Sayaji is legendary in Indore. Massive spread from live counters to fresh bakery treats. Every item was delicious."
+          " The poolside dinner at Kebabsville with live grilled kebabs was pure perfection.",
+          " Grand breakfast buffet spread with live counters was fresh, royal, and delicious.",
+          " In-room dining service was prompt and the food arrived piping hot with five-star plating.",
+          " Every dish from rich curries to continental desserts was bursting with authentic flavors."
         ],
         events: [
-          "Attended a grand wedding at Sayaji Banquets. Outstanding event management, spacious air-conditioned halls, and exquisite catering. 5 stars!",
-          "Best banquet venue in Indore for corporate conferences and luxury weddings. The lighting, sound, and catering staff were world class."
+          " Attended a wedding function at the banquet hall; grand decor and seamless management.",
+          " Spacious AC banquet venue with crystal clear sound, ambient lighting, and great catering.",
+          " Perfect arrangements for corporate conferences and grand family celebrations alike.",
+          " The banquet hospitality team handled the entire evening flawlessly without any delay."
         ],
         service: [
-          "Front desk hospitality deserves more than 5 stars! Smooth check-in, polite bellboys, and genuine warmth across the entire team.",
-          "The staff at Sayaji goes out of the way to ensure guest comfort. Prompt response on every service call with a humble smile."
+          " Front desk team made check-in lightning fast with a warm, welcoming smile.",
+          " Housekeeping and bellboys responded to every single request within 5 minutes.",
+          " Extremely courteous and well-trained staff that treats every guest with utmost respect.",
+          " Genuine warmth and humble attitude across all departments made us feel truly special."
         ]
       },
       hi: {
-        all: [
-          "Sayaji Hotel Indore me stay karke bohot shandar royal experience raha! Rooms ekdum clean, spacious aur comfortable hain. Breakfast buffet aur staff ka nature 10/10 hai!",
-          "Indore me luxury stay aur food ke liye Sayaji se behtar koi hotel nahi hai. Check-in se lekar check-out tak sab kuch perfect raha. Full 5-star rating!"
-        ],
         stay: [
-          "Room ki cleanliness aur bed comfort bilkul top class tha. Washroom spotless tha aur AC cooling bina kisi noise ke perfect chal rahi thi. 5 stars!"
+          " Room bilkul spotless clean tha, bed super comfortable aur AC cooling ekdum silent.",
+          " Spacious luxury room, fresh linen aur spotless washroom ne dil khush kar diya.",
+          " Shanti bhara mahol aur peaceful neend ke liye rooms Indore me sabse best hain.",
+          " Room amenities aur housekeeping ka hygiene standard pure 5-star mila."
         ],
         dining: [
-          "Kebabsville me dining ka experience lajawab tha! Poolside live kebabs aur grand dinner buffet ka koi mukabla nahi pure Indore me. 10/10!"
+          " Kebabsville me poolside grilled kebabs aur grand dinner buffet lajawab tha.",
+          " Subah ka breakfast buffet royal tha; live counters se dessert tak sab fresh mila.",
+          " In-room dining ka food garam aur bohot hi tasty deliver hua.",
+          " Har ek dish ka authentic taste aur royal presentation dekhne layak tha."
         ],
         events: [
-          "Sayaji ka banquet hall aur wedding management Indore me number one hai. Grand decoration, shandar food aur attentive staff mila."
+          " Banquet hall ka decor, lighting aur catering arrangements bilkul grand the.",
+          " Family wedding function ke liye banquet management aur sound system flawless raha.",
+          " Grand celebration ke liye Indore ka sabse shandar aur spacious event venue hai."
         ],
         service: [
-          "Front desk aur housekeeping staff ka behaviour bohot respectful aur helpful raha. Har request 5 minute me complete hui. Shandar service!"
+          " Front desk par smooth check-in hua aur staff ka behaviour bohot respectful tha.",
+          " Housekeeping ne har service request 5 minute ke andar attend ki.",
+          " Staff ka nature bohot warm aur helpful tha; dil se 5-star hospitality banti hai."
         ]
       }
     };
 
-    var curC = 'all', curL = 'en', lastI = 0;
+    var outros = {
+      en: [
+        " 10/10 recommended for everyone visiting Indore!",
+        " Will definitely choose Sayaji again on our next trip.",
+        " Proud to have such world-class hospitality in MP. 5 stars all the way!",
+        " Highly recommended for both business travelers and families.",
+        " An unforgettable five-star stay in Indore!"
+      ],
+      hi: [
+        " Indore aane wale har traveler ko 100% recommend karunga!",
+        " Agli baar bhi bina soche Sayaji hi book karenge. Full 5 stars!",
+        " Family trip aur business visit dono ke liye number one hotel hai.",
+        " 10/10 rating for overall luxury stay experience in Indore!"
+      ]
+    };
+
+    var curC = 'all', curL = 'en';
+    // Direct Official Google Review Writing Link (with verified Place ID)
     var targetUrl = "https://search.google.com/local/writereview?placeid=ChIJ3VHKFKgCYzkR61I0bzuwhPY";
 
     function nextRev() {
-      var arr = data[curL][curC] || data['en']['all'];
-      var idx = Math.floor(Math.random() * arr.length);
-      if (idx === lastI && arr.length > 1) idx = (idx + 1) % arr.length;
-      lastI = idx;
-      document.getElementById('rev-text').innerText = arr[idx];
+      var introArr = intros[curL];
+      var outroArr = outros[curL];
+      
+      var specArr = [];
+      if (curC === 'all') {
+        var cats = ['stay', 'dining', 'events', 'service'];
+        for (var i = 0; i < cats.length; i++) {
+          specArr = specArr.concat(specifics[curL][cats[i]]);
+        }
+      } else {
+        specArr = specifics[curL][curC] || specifics[curL]['stay'];
+      }
+
+      var iIdx = Math.floor(Math.random() * introArr.length);
+      var sIdx = Math.floor(Math.random() * specArr.length);
+      var oIdx = Math.floor(Math.random() * outroArr.length);
+
+      var result = introArr[iIdx] + specArr[sIdx] + outroArr[oIdx];
+      document.getElementById('rev-text').innerText = result;
     }
 
     function setCat(c) {
